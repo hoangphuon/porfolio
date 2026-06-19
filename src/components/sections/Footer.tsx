@@ -10,7 +10,7 @@ const Footer = () => {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setStatus('idle');
@@ -28,7 +28,7 @@ const Footer = () => {
       setStatus('success');
       formRef.current?.reset();
       setTimeout(() => setStatus('idle'), 5000);
-    }, (error) => {
+    }, (error: Error) => {
       setLoading(false);
       setStatus('error');
       console.error('EmailJS Error:', error);

@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import { useTexture, Float } from '@react-three/drei';
 import * as THREE from 'three';
 
-const Earth = () => {
+const Earth = ({ isDarkMode = true }: { isDarkMode?: boolean }) => {
   const earthRef = useRef<THREE.Mesh>(null);
   const cloudsRef = useRef<THREE.Mesh>(null);
 
@@ -35,7 +35,9 @@ const Earth = () => {
             map={earthTexture}
             normalMap={normalTexture}
             specularMap={specularTexture}
-            shininess={10}
+            shininess={isDarkMode ? 10 : 35}
+            emissive={isDarkMode ? "#000000" : "#2e5b8a"}
+            emissiveIntensity={isDarkMode ? 0 : 0.75}
           />
         </mesh>
 
@@ -45,8 +47,10 @@ const Earth = () => {
           <meshPhongMaterial
             map={cloudsTexture}
             transparent={true}
-            opacity={0.5}
+            opacity={isDarkMode ? 0.5 : 0.8}
             depthWrite={false}
+            emissive={isDarkMode ? "#000000" : "#ffffff"}
+            emissiveIntensity={isDarkMode ? 0 : 0.3}
           />
         </mesh>
 
@@ -54,9 +58,9 @@ const Earth = () => {
         <mesh>
           <sphereGeometry args={[1.01, 64, 64]} />
           <meshPhongMaterial
-            color="#4db5ff"
+            color={isDarkMode ? "#4db5ff" : "#60a5fa"}
             transparent={true}
-            opacity={0.15}
+            opacity={isDarkMode ? 0.15 : 0.3}
             side={THREE.BackSide}
           />
         </mesh>
@@ -65,19 +69,19 @@ const Earth = () => {
         <mesh>
           <sphereGeometry args={[1.15, 64, 64]} />
           <meshPhongMaterial
-            color="#0066ff"
+            color={isDarkMode ? "#0066ff" : "#93c5fd"}
             transparent={true}
-            opacity={0.05}
+            opacity={isDarkMode ? 0.05 : 0.15}
             side={THREE.BackSide}
           />
         </mesh>
       </Float>
       
       {/* Lighting specifically for Earth - Boosted for extra brightness */}
-      <pointLight position={[12, 12, 12]} intensity={5} color="#ffffff" />
-      <pointLight position={[-12, -12, 10]} intensity={2} color="#ffffff" />
-      <pointLight position={[0, 0, 15]} intensity={1.5} color="#ffffff" />
-      <ambientLight intensity={0.6} />
+      <pointLight position={[12, 12, 12]} intensity={isDarkMode ? 5 : 15} color="#ffffff" />
+      <pointLight position={[-12, -12, 10]} intensity={isDarkMode ? 2 : 6} color="#ffffff" />
+      <pointLight position={[0, 0, 15]} intensity={isDarkMode ? 1.5 : 5} color="#ffffff" />
+      <ambientLight intensity={isDarkMode ? 0.6 : 2.5} />
     </group>
   );
 };

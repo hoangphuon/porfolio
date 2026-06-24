@@ -25,7 +25,7 @@ const Navbar = ({ isDarkMode, toggleTheme }: { isDarkMode: boolean, toggleTheme:
 
   return (
     <nav className={`w-full flex justify-center fixed top-0 z-[100] transition-all duration-500 ${scrolled ? 'py-2' : 'py-4'}`}>
-      <div className={`flex justify-between items-center transition-all duration-500 ${scrolled ? 'max-w-4xl w-[90%] glassmorphism px-8 py-3 rounded-full shadow-neon border border-white/10' : 'max-w-7xl w-full px-6'}`}>
+      <div className={`flex justify-between items-center transition-all duration-500 ${scrolled ? 'max-w-4xl w-[90%] glassmorphism px-8 py-3 rounded-full shadow-lg dark:shadow-neon border border-slate-200/50 dark:border-white/10' : 'max-w-7xl w-full px-6'}`}>
         <a 
           href="#" 
           className="flex items-center gap-2"
@@ -56,7 +56,7 @@ const Navbar = ({ isDarkMode, toggleTheme }: { isDarkMode: boolean, toggleTheme:
           <div className="flex items-center gap-4">
             <button 
               onClick={toggleTheme}
-              className={`p-2 rounded-full glassmorphism border border-slate-200 dark:border-white/10 hover:shadow-neon transition-all ${isDarkMode ? 'text-white' : 'text-slate-700'}`}
+              className={`p-2 rounded-full glassmorphism border border-slate-200 dark:border-white/10 hover:shadow-md dark:hover:shadow-neon transition-all ${isDarkMode ? 'text-white' : 'text-slate-700'}`}
             >
               {isDarkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
@@ -68,12 +68,12 @@ const Navbar = ({ isDarkMode, toggleTheme }: { isDarkMode: boolean, toggleTheme:
                 <Menu className={`w-6 h-6 cursor-pointer ${isDarkMode ? 'text-white' : 'text-slate-900'}`} onClick={() => setToggle(!toggle)} />
               )}
 
-              <div className={`${!toggle ? 'hidden' : 'flex'} p-6 absolute top-16 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl glassmorphism ${!isDarkMode ? 'bg-white/90 border-slate-200 shadow-xl' : ''}`}>
+              <div className={`${!toggle ? 'hidden' : 'flex'} p-6 absolute top-16 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl glassmorphism ${!isDarkMode ? 'bg-white/95 border-slate-200/80 shadow-2xl text-slate-800' : 'border-white/10'}`}>
                 <ul className="list-none flex justify-end items-start flex-col gap-4">
                   {navLinks.map((link) => (
                     <li
                       key={link.id}
-                      className={`${active === link.title ? 'text-blue-600 dark:text-neonBlue' : (isDarkMode ? 'text-secondary' : 'text-slate-600')} font-medium cursor-pointer text-[15px]`}
+                      className={`${active === link.title ? 'text-blue-600 dark:text-neonBlue font-bold' : (isDarkMode ? 'text-secondary' : 'text-slate-600')} hover:text-blue-600 dark:hover:text-neonBlue font-medium cursor-pointer text-[15px]`}
                       onClick={() => {
                         setToggle(!toggle);
                         setActive(link.title);

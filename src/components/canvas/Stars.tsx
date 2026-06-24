@@ -24,10 +24,10 @@ export const StarsBackground = ({ isDarkMode = true, ...props }: { isDarkMode?: 
         <PointMaterial
           transparent
           color={isDarkMode ? "#00f3ff" : "#2563eb"}
-          size={isDarkMode ? 0.003 : 0.005}
+          size={isDarkMode ? 0.003 : 0.004}
           sizeAttenuation={true}
           depthWrite={false}
-          opacity={isDarkMode ? 0.6 : 0.4}
+          opacity={isDarkMode ? 0.6 : 0.12}
         />
       </Points>
     </group>

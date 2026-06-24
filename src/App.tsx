@@ -29,7 +29,7 @@ function App() {
   }, [isDarkMode]);
 
   return (
-    <main className={`relative z-0 ${isDarkMode ? 'bg-primary cursor-none' : 'bg-white-100 cursor-auto'}`}>
+    <main className={`relative z-0 ${isDarkMode ? 'bg-primary cursor-none' : 'bg-slate-50 cursor-auto'}`}>
       {isDarkMode && <CustomCursor />}
       <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
       <div className="relative z-0">

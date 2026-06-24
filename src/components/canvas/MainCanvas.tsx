@@ -61,7 +61,7 @@ const MainCanvas = ({ isDarkMode = true }: { isDarkMode?: boolean }) => {
       >
         <Suspense fallback={null}>
           <CameraController />
-          <Earth />
+          <Earth isDarkMode={isDarkMode} />
           <StarsBackground isDarkMode={isDarkMode} />
           <FallingStars isDarkMode={isDarkMode} />
         </Suspense>

@@ -25,7 +25,9 @@ const ShootingStar = ({ isDarkMode = true }: { isDarkMode?: boolean }) => {
 
       // Twinkle effect
       if (mesh.current.material instanceof THREE.MeshBasicMaterial) {
-        mesh.current.material.opacity = 0.4 + Math.sin(t * 5 + data.x) * 0.4;
+        const baseOpacity = isDarkMode ? 0.4 : 0.08;
+        const pulse = isDarkMode ? 0.4 : 0.08;
+        mesh.current.material.opacity = baseOpacity + Math.sin(t * 5 + data.x) * pulse;
       }
 
       // Reset when below view
@@ -39,7 +41,7 @@ const ShootingStar = ({ isDarkMode = true }: { isDarkMode?: boolean }) => {
   return (
     <mesh ref={mesh} position={[data.x, data.y, data.z]}>
       <sphereGeometry args={[data.scale, 8, 8]} />
-      <meshBasicMaterial color={isDarkMode ? "#ffd700" : "#d97706"} transparent />
+      <meshBasicMaterial color={isDarkMode ? "#ffd700" : "#3b82f6"} transparent />
     </mesh>
   );
 };

@@ -62,11 +62,21 @@ const Footer = () => {
               <span>{personalInfo.contact.email}</span>
             </div>
             <div className="flex gap-6 mt-10">
-              <a href={personalInfo.contact.github} target="_blank" rel="noreferrer" className="p-3 glassmorphism rounded-full border border-slate-200 dark:border-white/10 hover:shadow-xl transition-all">
-                <Globe className="w-6 h-6 text-slate-700 dark:text-white" />
+              <a 
+                href={personalInfo.contact.github} 
+                target="_blank" 
+                rel="noreferrer" 
+                className="p-3 glassmorphism rounded-full border border-slate-200 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-neonBlue/50 hover:shadow-lg dark:hover:shadow-neon hover:text-blue-600 dark:hover:text-neonBlue transition-all text-slate-700 dark:text-white"
+              >
+                <Globe className="w-6 h-6" />
               </a>
-              <a href={personalInfo.contact.twitter} target="_blank" rel="noreferrer" className="p-3 glassmorphism rounded-full border border-slate-200 dark:border-white/10 hover:shadow-xl transition-all">
-                <MessageSquare className="w-6 h-6 text-slate-700 dark:text-white" />
+              <a 
+                href={personalInfo.contact.twitter} 
+                target="_blank" 
+                rel="noreferrer" 
+                className="p-3 glassmorphism rounded-full border border-slate-200 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-neonBlue/50 hover:shadow-lg dark:hover:shadow-neon hover:text-blue-600 dark:hover:text-neonBlue transition-all text-slate-700 dark:text-white"
+              >
+                <MessageSquare className="w-6 h-6" />
               </a>
             </div>
             
@@ -117,7 +127,7 @@ const Footer = () => {
             <button
               type="submit"
               disabled={loading}
-              className="bg-[#1d1836] dark:bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl flex items-center gap-2 hover:bg-blue-600 dark:hover:bg-neonBlue transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-slate-900 dark:bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-slate-200 dark:shadow-primary rounded-xl flex items-center gap-2 hover:bg-blue-600 dark:hover:bg-neonBlue transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <>Đang gửi... <Loader2 className="w-4 h-4 animate-spin" /></>
@@ -151,7 +161,7 @@ const Footer = () => {
         </motion.div>
       </div>
 
-      <div className="mt-20 text-center text-secondary text-sm border-t border-white/5 pt-8">
+      <div className="mt-20 text-center text-slate-500 dark:text-secondary text-sm border-t border-slate-200 dark:border-white/5 pt-8">
         <p>© 2026 {personalInfo.name}. All rights reserved.</p>
         <p className="mt-2 italic text-xs">“Code không chỉ là kỹ thuật — đó là nghệ thuật kể chuyện.”</p>
       </div>
